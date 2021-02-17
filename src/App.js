@@ -22,15 +22,13 @@ function App() {
 
 	useEffect(() => {
 		const fetchedData = async () => {
-			axios
+			const response = await axios
 				.get(address)
-				.then((response) => {
-					setData(response.data.results);
-				})
 				.catch((err) => alert(err.message));
+			setData(response.data.results);
 		};
 		fetchedData();
-	}, []);
+	}, [address]);
 
 	console.log(data);
 
